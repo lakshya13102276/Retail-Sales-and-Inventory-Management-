@@ -1,0 +1,7 @@
+{
+	"name": "ELT1_pl",
+	"properties": {
+		"description": "Data loading to gold tier from bronze to be triggered by new file upload\n",
+		"annotations": []
+	}
+}
