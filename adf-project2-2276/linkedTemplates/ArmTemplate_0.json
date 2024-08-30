@@ -18,6 +18,10 @@
 		"new_upload_trigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/ca1b099d-bbc3-40d9-bead-77d870c9e3cc/resourceGroups/rg-projecttwo/providers/Microsoft.Storage/storageAccounts/saprojecttwo"
+		},
+		"file_upload_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/ca1b099d-bbc3-40d9-bead-77d870c9e3cc/resourceGroups/rg-projecttwo/providers/Microsoft.Storage/storageAccounts/saprojecttwo"
 		}
 	},
 	"variables": {
@@ -38,6 +42,27 @@
 						"value": "[parameters('AzureDatabricks1_accessToken')]"
 					},
 					"existingClusterId": "[parameters('AzureDatabricks1_properties_typeProperties_existingClusterId')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/new_upload_trigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "new file upload trigger",
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/bronze-project2/blobs/",
+					"ignoreEmptyBlobs": false,
+					"scope": "[parameters('new_upload_trigger_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
 				}
 			},
 			"dependsOn": []
@@ -159,11 +184,11 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/new_upload_trigger')]",
+			"name": "[concat(parameters('factoryName'), '/file_upload')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "new file upload trigger",
+				"description": "trigger when new file",
 				"annotations": [],
 				"runtimeState": "Started",
 				"pipelines": [
@@ -178,8 +203,8 @@
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
 					"blobPathBeginsWith": "/bronze-project2/blobs/",
-					"ignoreEmptyBlobs": false,
-					"scope": "[parameters('new_upload_trigger_properties_typeProperties_scope')]",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('file_upload_properties_typeProperties_scope')]",
 					"events": [
 						"Microsoft.Storage.BlobCreated"
 					]
