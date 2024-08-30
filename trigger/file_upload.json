@@ -1,0 +1,25 @@
+{
+	"name": "file_upload",
+	"properties": {
+		"description": "trigger when new file",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "ELT1_pl",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/bronze-project2/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/ca1b099d-bbc3-40d9-bead-77d870c9e3cc/resourceGroups/rg-projecttwo/providers/Microsoft.Storage/storageAccounts/saprojecttwo",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
