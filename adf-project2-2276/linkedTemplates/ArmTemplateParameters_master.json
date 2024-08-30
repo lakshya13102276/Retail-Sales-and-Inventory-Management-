@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-project2-2276"
+		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"value": "0621-042600-knehz7v0"
+		},
+		"new_upload_trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/ca1b099d-bbc3-40d9-bead-77d870c9e3cc/resourceGroups/rg-projecttwo/providers/Microsoft.Storage/storageAccounts/saprojecttwo"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
