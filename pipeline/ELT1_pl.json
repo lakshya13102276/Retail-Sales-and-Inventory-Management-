@@ -64,15 +64,9 @@
 				}
 			},
 			{
-				"name": "Silver to Gold",
+				"name": "silver to gold",
 				"type": "DatabricksNotebook",
 				"dependsOn": [
-					{
-						"activity": "Customer_info",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					},
 					{
 						"activity": "Inventory_log",
 						"dependencyConditions": [
@@ -81,6 +75,12 @@
 					},
 					{
 						"activity": "sales_txn",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Customer_info",
 						"dependencyConditions": [
 							"Succeeded"
 						]
