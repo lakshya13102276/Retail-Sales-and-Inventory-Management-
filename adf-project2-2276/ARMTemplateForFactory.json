@@ -165,7 +165,7 @@
 			"properties": {
 				"description": "new file upload trigger",
 				"annotations": [],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {
