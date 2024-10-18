@@ -33,10 +33,3 @@ To support inventory management and sales forecasting, four key visualizations a
 4. **Sales Forecasting (Time Series with Confidence Intervals)**
    - **Purpose**: Predict future sales based on historical data, helping to prepare for demand fluctuations and adjust inventory levels.
    - **Implementation**: Time series plot with a forecast line and confidence intervals.
-
-## How to Run
-
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/yourusername/retail-sales-inventory.git
-   cd retail-sales-inventory
